@@ -22,7 +22,7 @@
         <div class="box-body table-responsive no-padding">
           <table class="table table-hover">
             <tr>
-              <th>ID</th>
+              <th>#</th>
               <th>Listing Id</th>
               <th>Property Address</th>
               <th>Sale Type</th>
@@ -33,6 +33,7 @@
             </tr>
             @foreach ($results->interests as $result)
               <tr>
+                <td>{{ $result->address }}</td>
                 <td>{{ $result->id }}</td>
                 <td>{{ $result->listing_id }}</td>
                 <td><a><b>{{ $result->unit_no }} {{ $result->unit_no != '' ? '/' : '' }} {{ trim($result->street_no).' '.$result->street_no_suffix.' '.$result->street_name.' '.$result->street_ext.' '.$result->street_direction.' '.$result->suburb }}</b></a></td>
@@ -51,13 +52,6 @@
         <!-- /.box-body -->
         <div class="box-footer clearfix">
           <strong><span>{{ count($results) != 0 ? count($results->interests).' Record(s) Found' : '0 Record' }}</span></strong>
-          <ul class="pagination pagination-sm no-margin pull-right">
-            <li><a href="#">&laquo;</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">&raquo;</a></li>
-          </ul>
         </div>
       </div>
       <!-- /.box -->
@@ -65,25 +59,40 @@
   </div>
 </div> <!-- end of container -->
 
-<div id="delete-modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title"><b>DELETE</b></h4>
-      </div>
+<div id="delete-modal" class="modal modal-danger">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Confirmation Dialog</h4>
+        </div>
         <form class="form-horizontal" action="/interest/delete" method="post">
           <div class="modal-body">
-            <h4>Are you sure you want to delete?</h4>
-            {{ csrf_field() }}
-            <input name="delete_id" id="delete_id" type="text" value="" />
-          </div> <!-- end of modal body -->
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-danger">Yes</button> <!-- data dismiss? -->
-              <button type="button" class="btn btn-info" data-dismiss="modal">No</button>
-            </div>
-        </form> <!-- end of form horizontal -->
-    </div><!-- end of modal content -->
-  </div> <!-- end of modal dialog -->
-</div> <!-- end of modal -->
+              <h4>Are you sure you want to delete?</h4>
+              {{ csrf_field() }}
+              <input name="delete_id" id="delete_id" type="hidden" value="" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-outline">Delete</button>
+          </div>
+        </form>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+<!-- /.example-modal -->
+
+
+
+
+
+
+
+
 
 @endsection

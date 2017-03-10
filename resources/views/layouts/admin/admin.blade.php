@@ -10,7 +10,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="/css/ionicons.min.css">
+    <link rel="stylesheet" href="/css/ionicons-2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/bower_components/adminlte/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins -->

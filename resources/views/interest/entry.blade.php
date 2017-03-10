@@ -8,55 +8,12 @@
         <div class="box-header with-border">
             <h3 class="box-title">{{ session('batch_name') }}</h3>
         </div>
-        <!-- /.box-header -->
-        <!-- form start -->
-        <form class="form-horizontal">
-            <div class="box-body">
-                <div class="row">
-                    <div class="col-sm-3">
-                        {!! Form::label('state','State : ',['class'=>'control-label']) !!}
-                    </div>
-                    <div class="col-sm-3">
-                        {!! Form::text('state',null,['class'=>'form-control input-sm', 'readonly']) !!}
-                    </div>
-                </div>
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-info pull-right">Sign in</button>
-            </div>
-            <!-- /.box-footer -->
-        </form>
-    </div>
-    <!-- /.box -->
-</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
         {!! Form::open(array('role'=>'form','url'=>'/interest/entry','action'=>'POST','class'=>'form-horizontal'))!!}
           @include('interest.form',['status'=>'E'])
         {!! Form::close() !!}
-    </div><!-- end of column -->
-</div> <!-- end of row -->    
+    </div>
+</div>
 </div> <!-- end of container -->
 @endsection
 

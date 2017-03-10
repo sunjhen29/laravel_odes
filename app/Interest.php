@@ -38,7 +38,12 @@ class Interest extends Model
     public function setPostCodeAttribute($value){
         return $value !== null ? $value : '';
     }
-    
+
+    public function setAddressAttribute(){
+        return "hello";
+    }
+
+
     /**
      * Relationship to Batch
      */
