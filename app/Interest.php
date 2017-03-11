@@ -39,8 +39,17 @@ class Interest extends Model
         return $value !== null ? $value : '';
     }
 
-    public function setAddressAttribute(){
-        return "hello";
+    public function getAddressAttribute($value){
+        $value = '';
+        $this->unit_no != '' ? $value .= $this->unit_no.'/' : null;
+        $value .= $this->street_no.' ';
+        $this->street_no_suffix != '' ? $value .= $this->street_no_suffix.' ' : null ;
+        $value .= $this->street_name.' ';
+        $this->street_ext ? $value .= $this->street_ext.' ' : null;
+        $this->street_direction != '' ? $value .= $this->street_direction.' ' : null;
+        $this->post_code != null ? $this->post_code.' ' : null;
+       $value .= $this->suburb;
+        return $value;
     }
 
 

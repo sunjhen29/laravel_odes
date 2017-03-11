@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,14 +14,10 @@
     <link rel="stylesheet" href="/css/ionicons-2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/bower_components/adminlte/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+    <!-- AdminLTE Skins -->
     <link rel="stylesheet" href="/bower_components/adminlte/dist/css/skins/_all-skins.min.css">
-    <!-- custom css -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/dataentry_cus.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="/js/html5shiv.min.js"></script>
     <script src="/js/respond.min.js"></script>
@@ -30,25 +25,38 @@
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
 <body class="hold-transition skin-green layout-top-nav">
-<div class="wrapper">
+    <div class="wrapper">
+
     @include('layouts.dataentry.header')
 
-    <!-- Full Width Column -->
-    <div class="content-wrapper">
-        <div class="container">
-           <!-- Main content -->
-            <section class="content">
-                @yield('content')
-            </section>
-           <!-- /.content -->
+    @yield('content')
+
+    <!-- Flash Messages Section -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                @include('flash::message')
+            </div>
         </div>
-       <!-- /.container -->
     </div>
-    <!-- /.content-wrapper -->
+
+    <!-- Validation Error Section -->
+    @if($errors->any())
+    <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+        <ul class="alert alert-danger">
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
     @include('layouts.dataentry.footer')
-</div>
-<!-- ./wrapper -->
+
+    </div>
+    <!-- ./wrapper -->
 
 <!-- jQuery 2.2.3 -->
 <script src="/bower_components/adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
@@ -64,8 +72,6 @@
 <script src="/bower_components/adminlte/dist/js/demo.js"></script>
 <!-- Date JS -->
 <script>
-    $('#flash-overlay-modal').modal();
-
     var $jqDate = jQuery('input.aussie_date[type=text]');
 
     //Bind keyup/keydown to the input
@@ -80,12 +86,11 @@
             }
         }
     });
-</script>
 
-<script>
     $(document).on('click', '.delete', function() {
         $('#delete_id').val($(this).data("id"));
     });
+
 </script>
 
 @stack('scripts')

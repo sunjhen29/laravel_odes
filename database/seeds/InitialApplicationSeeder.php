@@ -37,8 +37,8 @@ class InitialApplicationSeeder extends Seeder
         $jobnumber->job_number = 1234;
         $jobnumber->application = 'Interest Auction Results';
         $jobnumber->section = 'S';
-        $jobnumber->current_month = '2016-11-01';
-        $jobnumber->job_date = '2016-11-01';
+        $jobnumber->current_month = '2017-03-01';
+        $jobnumber->job_date = '2017-03-01';
         $jobnumber->stats_output = 'SP-Sample';
         $jobnumber->save();
         

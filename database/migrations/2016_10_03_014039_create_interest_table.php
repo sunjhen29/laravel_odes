@@ -36,9 +36,9 @@ class CreateInterestTable extends Migration
             $table->string('bathroom');
             $table->string('car');
             $table->string('status');
+            $table->string('slug')->unique();
             $table->timestamps();
-            
-            
+
             $table->foreign('batch_id')
                   ->references('id')->on('batches')
                   ->onDelete('cascade');

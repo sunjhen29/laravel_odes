@@ -59,10 +59,9 @@ class InterestController extends Controller
     }
     
     public function create(InterestRequest $request){
-        //$interest = $this->current_batch->interests()->save(new Interest($request->all()));
         $interest = $this->current_batch->interests()->create($request->all());
         event(new EntryRecordCreated($this->current_batch,'E',session('batch_name'),$interest->id,session('jobnumber')->id));
-        flash()->info('Success');
+        flash()->info('Successfully added a record.');
         return redirect()->back();
     }
 
@@ -107,7 +106,6 @@ class InterestController extends Controller
         flash()->info('Deleted!');
         return redirect()->back();
     }
-    
     
     //custom function
     public function search($id){

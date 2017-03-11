@@ -174,6 +174,7 @@
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
     
      @stack('scripts')
+
      <script>
         $('#flash-overlay-modal').modal();
         

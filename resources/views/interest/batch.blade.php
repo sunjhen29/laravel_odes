@@ -5,7 +5,7 @@
     <div class="row">
 
         <div class="col-md-3">
-            <img src="img/user.jpg" class="img-responsive thumbnail" alt="San Fran" width="100%">
+            <img src="img/user.jpg" class="img-responsive thumbnail" alt="User Image" width="100%">
         </div> <!-- end of col-sm-3 -->
 
         <div class="col-md-9">
@@ -56,19 +56,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="col-md-10 col-md-offset-2">
-                        @if($errors->any())
-                            <ul class="alert alert-danger">
-                                @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        @endif
-                    </div>
-                </div>
-
-                {!! Form::close() !!}
+               {!! Form::close() !!}
 
             </div> <!-- end of row -->
         </div> <!-- end of column-sm-9 -->

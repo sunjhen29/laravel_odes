@@ -15,6 +15,7 @@ class AdminUserTableSeeder extends Seeder
      */
     public function run()
     {
+
         $admin = new Admin();
         $admin->name = 'Sunday Doctolero';
         $admin->email = 'sunjhen29@yahoo.com';
@@ -36,8 +37,8 @@ class AdminUserTableSeeder extends Seeder
         $user->password = bcrypt('forever');
         $user->save();
         
-        $admin = new User();
-        $admin->name = 'mijaeya';
+        $user = new User();
+        $user->name = 'mijaeya';
         $user->firstname = 'Michele';
         $user->lastname = 'Ong';
         $user->email = 'mijaeya@gmail.com';

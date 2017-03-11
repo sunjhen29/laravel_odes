@@ -62,9 +62,11 @@
         <div class="col-sm-4 col-md-3">
             {!! Form::text('suburb',null,['class'=>'form-control input-sm', 'pattern'=>'[aA-zZ\s\'\.\-]{1,25}', 'required']) !!}
         </div>
+        <!--
         <div class="col-sm-2 col-md-2">
             {!! Form::text('post_code',null,['class'=>'form-control input-sm', 'pattern'=>'[0-9]{4}', 'readonly']) !!}
         </div>
+        -->
     </div>
 
     <div class="row">
@@ -160,11 +162,3 @@
 
 </div>
 
-<!-- /.box-footer -->
-@if($errors->any())
-<ul class="alert alert-danger">
-@foreach($errors->all() as $error)
-<li>{{ $error }}</li>
-@endforeach
-</ul>
-@endif

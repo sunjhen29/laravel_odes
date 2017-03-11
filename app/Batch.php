@@ -54,5 +54,10 @@ class Batch extends Model
     {
         return $this->hasMany('App\Reanz');
     }
+
+    public function getAddDateAttribute(){
+        return $this->created_at->diffForHumans();
+    }
+
 }
 

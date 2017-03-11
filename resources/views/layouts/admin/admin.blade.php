@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ODES | Administrator</title>
+    <meta name="_token" content="{{ csrf_token() }}">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="/bower_components/adminlte/bootstrap/css/bootstrap.min.css">
@@ -27,7 +28,7 @@
             <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <section class="content-header">
-            <h1><i class="fa fa-home"></i> {{ $menu or null }}</h1>
+            <h1><i class="fa fa-home"></i> {{ $title or null }}</h1>
         </section>
 
         <!-- Main content -->
@@ -40,11 +41,62 @@
     @include('layouts.admin.control-sidebar')
 </div>
 <!-- ./wrapper -->
+
 <!-- jQuery 2.2.3 -->
 <script src="/bower_components/adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="/bower_components/adminlte/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/bower_components/adminlte/dist/js/app.min.js"></script>
+
+
+
+
+@stack('scripts')
+
+<script>
+    $('#flash-overlay-modal').modal();
+
+    // var $jqDate = jQuery('input[name="contract_date"]');
+    var $jqDate = jQuery('input.aussie_date[type=text]');
+
+    //Bind keyup/keydown to the input
+    $jqDate.bind('keyup','keydown', function(e){
+
+        //To accomdate for backspacing, we detect which key was pressed - if backspace, do nothing:
+        if(e.which !== 8) {
+            var numChars = $jqDate.val().length;
+            if(numChars === 2 || numChars === 5){
+                var thisVal = $jqDate.val();
+                thisVal += '/';
+                $jqDate.val(thisVal);
+            }
+        }
+    });
+
+    // var $jqDate = jQuery('input[name="contract_date"]');
+    var $jqTime = jQuery('input.aussie_time[type=text]');
+
+    //Bind keyup/keydown to the input
+    $jqTime.bind('keyup','keydown', function(e){
+
+        //To accomdate for backspacing, we detect which key was pressed - if backspace, do nothing:
+        if(e.which !== 8) {
+            var numChars = $jqTime.val().length;
+            if(numChars === 2){
+                var thisVal = $jqTime.val();
+                thisVal += ':';
+                $jqTime.val(thisVal);
+            }
+            else if(numChars === 5){
+                var thisVal = $jqTime.val();
+                thisVal += ' ';
+                $jqTime.val(thisVal);
+            }
+        }
+    });
+</script>
+
+
 </body>
 </html>

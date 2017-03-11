@@ -33,10 +33,9 @@
             </tr>
             @foreach ($results->interests as $result)
               <tr>
-                <td>{{ $result->address }}</td>
                 <td>{{ $result->id }}</td>
                 <td>{{ $result->listing_id }}</td>
-                <td><a><b>{{ $result->unit_no }} {{ $result->unit_no != '' ? '/' : '' }} {{ trim($result->street_no).' '.$result->street_no_suffix.' '.$result->street_name.' '.$result->street_ext.' '.$result->street_direction.' '.$result->suburb }}</b></a></td>
+                <td><a><strong>{{ $result->address }}</strong></a></td>
                 <td>{{ $result->sale_type }}</td>
                 <td class="text-right">{{ $result->sold_price }}</td>
                 <td class="text-center">{{ $result->contract_date }}</td>
@@ -59,40 +58,6 @@
   </div>
 </div> <!-- end of container -->
 
-<div id="delete-modal" class="modal modal-danger">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Confirmation Dialog</h4>
-        </div>
-        <form class="form-horizontal" action="/interest/delete" method="post">
-          <div class="modal-body">
-              <h4>Are you sure you want to delete?</h4>
-              {{ csrf_field() }}
-              <input name="delete_id" id="delete_id" type="hidden" value="" />
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-outline">Delete</button>
-          </div>
-        </form>
-      </div>
-      <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-  </div>
-  <!-- /.modal -->
-
-<!-- /.example-modal -->
-
-
-
-
-
-
-
-
+@include('components.dialog',['dialog_type'=>'modal-danger','title'=>'Confirm','action'=>'/interest/delete','message'=>'Are you sure you want to delete this record?'])
 
 @endsection
