@@ -23,7 +23,7 @@ class BatchController extends Controller
     
     public function store(BatchRequest $request){
         $batch = Batch::create($request->all());
-        return \Response::json($batch);
+        return redirect('admin/batch/interest');
     }
 
     public function modify(Batch $batch_id){
@@ -33,13 +33,13 @@ class BatchController extends Controller
     public function update(Batch $batch_id, Request $request) {
         $batch_id->update($request->all());
         $batch = Batch::find($batch_id->id);
-        return \Response::json($batch);      
-        
+        return redirect()->back();
     }
     
-   public function destroy(Batch $batch_id){
-       $result = $batch_id->delete();
-       return \Response::json($result);
+   public function destroy(Request $request){
+       $record = Batch::findorfail($request->delete_id);
+       $record->delete();
+       return redirect()->back();
    } 
    
    

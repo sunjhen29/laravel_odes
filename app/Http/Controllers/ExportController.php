@@ -54,7 +54,7 @@ class ExportController extends Controller
             }    
     }
     
-    public function export_interest(Batch $batch){
+    public function export_interest_csv(Batch $batch){
             if( $batch){
                 $export = $batch->interests->all();    
                 $file = fopen('sample.csv','w+');
@@ -68,18 +68,42 @@ class ExportController extends Controller
                     $row->bedroom,$row->bathroom));
                 }
                 fclose($file);
-            
+
+                $filename = '_nz_interest.csv';
+
                 $headers = array(
                     'Content-Type' => 'text/csv',
                     );
                 
-                return response()->download('sample.csv','_nz_interest.csv', $headers);
+                return response()->download('sample.csv',$filename, $headers);
             } else {
                 flash()->info('No Record to Export');
                 return redirect()->back()->withInput();
             }    
     }
-    
+
+    public function export_interest_excel(Batch $batch){
+        DB::connection()->setFetchMode(PDO::FETCH_NUM);
+        $data = DB::table('interests')
+            ->select('state','unit_no','street_no','street_name','street_ext','street_direction','suburb','post_code',
+                'property_type','sale_type','sold_price',DB::raw('DATE_FORMAT(contract_date,"%d/%m/%Y") as contract_date'),
+                'settlement_date','agency_name','bedroom','bathroom' ,'car')
+
+
+            ->where('batch_id',$batch->id)
+            ->get();
+        DB::connection()->setFetchMode(PDO::FETCH_CLASS);
+
+        $filename = $batch->job_name.' '.$batch->batch_date;
+
+        Excel::create($filename, function($excel) use($data) {
+            $excel->sheet('Sheet1', function($sheet) use($data) {
+                $sheet->fromArray($data,null,'A1',false,false);
+            });
+        })->export('xls');
+    }
+
+
     public function show_aunews(){
         return view('admin.export.aunews');
     }

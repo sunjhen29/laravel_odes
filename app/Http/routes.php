@@ -22,6 +22,7 @@ Route::get('/admin', 'AdminController@index');
 Route::get('/admin/user','AdminController@showuser');
 Route::get('/admin/jobnumber','AdminController@showjobnumber');
 Route::get('/admin/logout', 'AdminController@logout');
+
 Route::get('/admin/batch/interest','AdminController@showinterest');
 Route::get('/admin/batch/aunews','AdminController@showaunews');
 Route::get('/admin/batch/reanz','AdminController@showreanz');
@@ -128,7 +129,8 @@ Route::post('/admin/report/production','ReportController@productionreport');
  * Exports Controller
  */
 Route::post('/admin/export/interest','ExportController@show_interest');
-Route::get('/admin/export/interest/{batch}','ExportController@export_interest');
+Route::get('/admin/export/interest/{batch}','ExportController@export_interest_csv');
+Route::get('/admin/export/interest/{batch}/excel','ExportController@export_interest_excel');
 
 Route::get('/admin/export/aunews','ExportController@show_aunews');
 Route::get('/admin/export/aunews/batch','ExportController@get_aunews');
@@ -162,8 +164,8 @@ Route::post('/admin/register', 'AdminAuth\AuthController@register');
 
 Route::get('/admin/batch/{batch_id}','BatchController@modify');
 Route::post('/admin/batch','BatchController@store');
-Route::put('/admin/batch/{batch_id}/edit','BatchController@update');
-Route::delete('/admin/batch/{batch_id}','BatchController@destroy');
+Route::post('/admin/batch/{batch_id}/edit','BatchController@update');
+Route::post('/admin/batch/delete','BatchController@destroy');
 
  
 

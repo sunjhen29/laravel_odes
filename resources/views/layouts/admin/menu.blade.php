@@ -38,7 +38,7 @@
             </li>
 
             <li class="treeview">
-                <a href="#"><i class="fa fa-users"></i> <span>Exports</span>
+                <a href="#"><i class="fa fa-file-text"></i> <span>Exports</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

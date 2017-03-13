@@ -43,7 +43,12 @@ class InterestServiceProvider extends ServiceProvider
            $view->with('sale_type',\App\Lookup::where('filter','sale_type')->lists('name','name'));
         });
     }
-    
+
+    private function composeAgencyName(){
+
+    }
+
+
     
     private function composePropertyType(){
         view()->composer('interest.form',function($view){

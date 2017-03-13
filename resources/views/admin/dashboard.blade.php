@@ -1,4 +1,4 @@
-@extends('layouts.admin.admin',['title'=>'Dashboard'])
+@extends('layouts.admin.admin',['title'=>'Dashboard','icon'=>'fa fa-home'])
 
 @section('content')
 <div class="container-fluid">

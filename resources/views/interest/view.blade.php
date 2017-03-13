@@ -22,7 +22,6 @@
         <div class="box-body table-responsive no-padding">
           <table class="table table-hover">
             <tr>
-              <th>#</th>
               <th>Listing Id</th>
               <th>Property Address</th>
               <th>Sale Type</th>
@@ -33,7 +32,6 @@
             </tr>
             @foreach ($results->interests as $result)
               <tr>
-                <td>{{ $result->id }}</td>
                 <td>{{ $result->listing_id }}</td>
                 <td><a><strong>{{ $result->address }}</strong></a></td>
                 <td>{{ $result->sale_type }}</td>

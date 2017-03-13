@@ -36,9 +36,11 @@
         <div class="col-sm-2 col-md-2">
             {!! Form::text('street_no',null,['class'=>'form-control input-sm', 'pattern'=>'[0-9aZ-zZ-.]{1,25}', 'required']) !!}
         </div>
+        <!--
         <div class="col-sm-1 col-md-1">
             {!! Form::text('street_no_suffix',null,['class'=>'form-control input-sm','pattern'=>'[aA-zZ]{1}']) !!}
         </div>
+        -->
     </div>
     <div class="row">
         <div class="col-sm-2 col-md-offset-2">
@@ -98,21 +100,40 @@
 
     <div class="row">
         <div class="col-sm-2 col-md-offset-2">
-            {!! Form::label('agency_name','Agency Name',['class'=>'control-label']) !!}
-        </div>
-        <div class="col-sm-5 col-md-4">
-            {!! Form::text('agency_name',null,['class'=>'form-control input-sm', 'pattern'=>'[aA-zZ0-9\s\'\.\-/&/]{1,100}', 'required']) !!}
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-2 col-md-offset-2">
             {!! Form::label('contract_date','Contract Date',['class'=>'control-label']) !!}
         </div>
         <div class="col-sm-3 col-md-2">
             {!! Form::text('contract_date',null,['class'=>'form-control input-sm aussie_date', 'placeholder'=>'dd/mm/yyyy','pattern'=>'^(((0[1-9]|[12]\d|3[01])/(0[13578]|1[02])/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)/(0[13456789]|1[012])/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])/02/((19|[2-9]\d)\d{2}))|(29/02/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$']) !!}
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-sm-2 col-md-offset-2">
+            {!! Form::label('agency_name','Agency Name',['class'=>'control-label']) !!}
+
+
+
+
+
+
+        </div>
+        <div class="col-sm-5 col-md-4">
+            {!! Form::text('agency_name',null,['class'=>'form-control input-sm', 'pattern'=>'[aA-zZ0-9\s\'\.\-/&/]{1,100}', 'list'=>'agency','required']) !!}
+            <datalist id="agency">
+                <option>Bayleys</option>
+                <option>Harcourts</option>
+                <option>Barfoot & Thompson</option>
+                <option>Colliers</option>
+                <option>Ray White City Apartments</option>
+                <option>City Sales</option>
+                <option>Impression Real Estate</option>
+                <option>NAI Harcourts</option>
+                <option>Knight Frank</option>
+            </datalist>
+        </div>
+    </div>
+
+
 
     <!--
     <div class="row">

@@ -24,9 +24,9 @@ class BatchRequest extends Request
     public function rules()
     {
         return [
-            'jobnumber' => 'required|numeric|digits:4',
             'job_name' => 'required',
             'batch_date' => 'required|date_format:d/m/Y',
+            'job_status' => 'required'
         ];
     }
 }

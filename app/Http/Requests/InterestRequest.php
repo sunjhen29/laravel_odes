@@ -27,7 +27,7 @@ class InterestRequest extends Request
         return [
             'listing_id' => 'required|alpha_num',
             'unit_no' => 'min:1',
-            'street_no' => 'required|numeric',
+            'street_no' => 'required',
             'street_no_suffix' => 'max:1|alpha',
             'street_name' => 'required',
             'street_direction' => 'min:4|regex:/^[(North)(South)(East)(West)]+$/u',

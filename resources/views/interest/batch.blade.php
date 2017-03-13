@@ -52,7 +52,7 @@
                         <button type="submit" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span> Submit</button>
                     </div>
                     <div class="col-md-3">
-                        <a href="{{ url('/dataentry') }}" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-arrow-left"></span>  Back To Application</a>
+                        <a href="{{ url('/dataentry') }}" class="btn btn-primary btn-lg btn-block"><i class="fa fa-reply" aria-hidden="true"></i>  Back To Dashboard</a>
                     </div>
                 </div>
 

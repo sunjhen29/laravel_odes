@@ -12,10 +12,13 @@
     <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="/css/ionicons-2.0.1/css/ionicons.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/bower_components/adminlte/plugins/datatables/dataTables.bootstrap.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/bower_components/adminlte/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins -->
     <link rel="stylesheet" href="/bower_components/adminlte/dist/css/skins/skin-green.min.css">
+
     <!--[if lt IE 9]>
     <script src="/js/html5shiv.min.js"></script>
     <script src="/js/respond.min.js"></script>
@@ -28,7 +31,7 @@
             <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <section class="content-header">
-            <h1><i class="fa fa-home"></i> {{ $title or null }}</h1>
+            <h1><i class="{{ $icon or null }}"></i> {{ $title or null }}</h1>
         </section>
 
         <!-- Main content -->
@@ -48,6 +51,11 @@
 <script src="/bower_components/adminlte/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/bower_components/adminlte/dist/js/app.min.js"></script>
+<!-- DataTables -->
+<script src="/bower_components/adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/bower_components/adminlte/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+
 
 
 
